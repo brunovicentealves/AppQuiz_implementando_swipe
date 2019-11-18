@@ -15,6 +15,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ConstraintLayout tela;
+    private AlertDialog  alerta;
     private TextView tvPergunta,tvNumero,tvSim,tvNao,tvResposta;
     private int contador ,acertou;
 
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 
         contador =-1;
@@ -108,7 +110,15 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                     }
-                    tvResposta.setText("Você acertou "+acertou);
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+                    builder.setTitle("Respostas Certas");
+                    builder.setMessage("Você Acertou : "+acertou);
+                     alerta = builder.create();
+
+                     alerta.show();
+
 
                     acertou=0;
 
